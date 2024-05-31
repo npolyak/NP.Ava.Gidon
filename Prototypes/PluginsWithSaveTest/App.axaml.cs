@@ -1,7 +1,7 @@
 using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
-using NP.Avalonia.Gidon;
+using NP.Ava.Gidon;
 using NP.DependencyInjection.Interfaces;
 using NP.NLogAdapter;
 using System;
