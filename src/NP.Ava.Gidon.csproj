@@ -1,0 +1,40 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<PackageId>NP.Ava.Gidon</PackageId>
+		<Version>0.99.16</Version>
+		<Authors>Nick Polyak, Ph. D.</Authors>
+		<Company>AWebPros</Company>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<Authors>Nick Polyak Ph. D.</Authors>
+		<Description>IoC + MVVM framework</Description>
+		<Copyright>Nick Polyak 2023</Copyright>
+		<PackageTags>IoC, MVVM</PackageTags>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+	  <DebugType>embedded</DebugType>
+	  <Optimize>False</Optimize>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<None Remove="*.nupkg" />
+		<None Remove="*.nuspec" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Compile Remove="WinProcessAttachedProperties.cs" />
+	</ItemGroup>
+
+	<ItemGroup Condition="'$(Configuration)'=='Debug'">
+		<ProjectReference Include="$(SolutionDir)..\..\SubModules\NP.Ava.UniDock\src\NP.Ava.UniDock.csproj" />
+		<ProjectReference Include="$(SolutionDir)..\..\SubModules\NP.IoCy\src\NP.IoCy.csproj" />
+	</ItemGroup>
+
+	<ItemGroup Condition="'$(Configuration)'=='Release'">
+		<PackageReference Include="NP.Ava.UniDock" Version="1.0.7" />
+		<PackageReference Include="NP.IoCy" Version="1.0.34" />
+		<PackageReference Include="NP.Grpc.CommonRelayInterfaces" Version="1.0.5" />
+	</ItemGroup>
+</Project>

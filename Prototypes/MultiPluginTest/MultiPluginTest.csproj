@@ -1,0 +1,29 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+  </PropertyGroup>
+  <ItemGroup>
+    <AvaloniaXaml Remove="Plugins\**" />
+    <Compile Remove="Plugins\**" />
+    <EmbeddedResource Remove="Plugins\**" />
+    <None Remove="Plugins\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove=".gitignore" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\NP.Ava.Gidon.csproj" />
+    <ProjectReference Include="..\..\SubModules\NP.Avalonia.UniDockService\src\NP.Ava.UniDockService.csproj" />
+    <ProjectReference Include="..\..\SubModules\NP.Ava.UniDock\src\NP.Ava.UniDock.csproj" />
+    <ProjectReference Include="..\..\SubModules\NP.Ava.Visuals\src\NP.Ava.Visuals.csproj" />
+    <ProjectReference Include="..\..\SubModules\NP.Concepts.Behaviors\src\NP.Concepts.Behaviors.csproj" />
+    <ProjectReference Include="..\..\SubModules\NP.IoCy\src\NP.IoCy.csproj" />
+    <ProjectReference Include="..\..\SubModules\NP.NLogAdapter\src\NP.NLogAdapter.csproj" />
+    <ProjectReference Include="..\..\SubModules\NP.Utilities\src\NP.Utilities.csproj" />
+    <ProjectReference Include="..\..\Tests\Common\Common.csproj" />
+    <ProjectReference Include="..\..\Tests\TestPlugins\ViewViewModelPlugins\CommonNonVisualLib\CommonNonVisualLib.csproj" />
+    <ProjectReference Include="..\..\Tests\TestPlugins\ViewViewModelPlugins\SecurityTest\SecurityTextViewModelPlugin\SecurityTestViewModelPlugin.csproj" />
+    <ProjectReference Include="..\..\Tests\TestPlugins\ViewViewModelPlugins\SecurityTest\SecurityTextViewPlugin\SecurityTestViewPlugin.csproj" />
+    <ProjectReference Include="..\..\Tests\TestServiceInterfaces\TestServiceInterfaces.csproj" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,67 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <Optimize>False</Optimize>
+    <DebugType>embedded</DebugType>
+  </PropertyGroup>
+  <ItemGroup>
+    <AvaloniaXaml Remove="Plugins\**" />
+    <Compile Remove="Plugins\**" />
+    <EmbeddedResource Remove="Plugins\**" />
+    <None Remove="Plugins\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove=".gitignore" />
+  </ItemGroup>
+  <ItemGroup>
+    <!--Condition below is needed to remove Avalonia.Diagnostics package from build output in Release configuration.-->
+    <PackageReference Include="System.Reactive" Version="5.0.0" />
+    <PackageReference Include="XamlNameReferenceGenerator" Version="1.6.1" />
+   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\SubModules\NP.Grpc.RelayServer\Plugins\NP.GrpcConfig\NP.GrpcConfig.csproj" />
+  </ItemGroup>
+
+	<ItemGroup Condition="'$(Configuration)'=='Debug'">
+	    <ProjectReference Include="..\..\SubModules\NP.Grpc.RelayServer\Plugins\NP.Grpc.RelayClient\NP.Grpc.RelayClient.csproj" />
+        <ProjectReference Include="..\..\SubModules\NP.Grpc.RelayServer\Plugins\NP.Grpc.RelayServer\NP.Grpc.RelayServer.csproj" />
+		<ProjectReference Include="..\..\src\NP.Avalonia.Gidon.csproj" />
+	</ItemGroup>
+
+
+	<ItemGroup Condition="'$(Configuration)'=='Release'">
+		<PackageReference Include="NP.Grpc.RelayClient" Version="1.0.6" GeneratePathProperty="true">
+			<ExcludeAssets>All</ExcludeAssets>
+		</PackageReference>
+		<PackageReference Include="NP.Grpc.RelayServer" Version="1.0.7" GeneratePathProperty="true">
+			<ExcludeAssets>All</ExcludeAssets>
+		</PackageReference>
+		<PackageReference Include="NP.Avalonia.Gidon" Version="0.99.16" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<RelayClientFiles Include="$(PkgNP_Grpc_RelayClient)\lib\net6.0\**\*.*" />
+		<RelayServerFiles Include="$(PkgNP_Grpc_RelayServer)\lib\net6.0\**\*.*" />
+	</ItemGroup>
+	
+	<Target Name="CopyClientPluginFromNugetPackage" AfterTargets="Build" Condition="'$(Configuration)'=='Release'">
+		<PropertyGroup>
+			<ClientPluginFolder>$(TargetDir)\Plugins\Services\NP.Grpc.RelayClient</ClientPluginFolder>
+		</PropertyGroup>
+		<RemoveDir Directories="$(ClientPluginFolder)" />
+		<Copy SourceFiles="@(RelayClientFiles)" DestinationFolder="$(ClientPluginFolder)\%(RecursiveDir)" />
+	</Target>
+		
+	<Target Name="CopyServerPluginFromNugetPackage" AfterTargets="Build" Condition="'$(Configuration)'=='Release'">
+		<PropertyGroup>
+			<ServerPluginFolder>$(TargetDir)\Plugins\Services\NP.Grpc.RelayServer</ServerPluginFolder>
+		</PropertyGroup>
+		<RemoveDir Directories="$(ServerPluginFolder)" />
+		<Copy SourceFiles="@(RelayServerFiles)" DestinationFolder="$(ServerPluginFolder)\%(RecursiveDir)" />
+	</Target>
+</Project>
