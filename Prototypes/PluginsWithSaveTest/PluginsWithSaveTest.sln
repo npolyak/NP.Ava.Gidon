@@ -19,7 +19,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NP.ViewModelInterfaces", ".
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NP.Ava.UniDock", "..\..\SubModules\NP.Ava.UniDock\src\NP.Ava.UniDock.csproj", "{6F86A3D4-8C21-487E-B794-01C6C9DD6420}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NP.Ava.UniDockService", "..\..\SubModules\NP.Ava.UniDockService\src\NP.Ava.UniDockService.csproj", "{B6129253-146C-4D48-9727-2FA273E01FB0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NP.Ava.UniDockService", "..\..\SubModules\NP.Avalonia.UniDockService\src\NP.Ava.UniDockService.csproj", "{B6129253-146C-4D48-9727-2FA273E01FB0}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NP.Ava.Gidon", "..\..\src\NP.Ava.Gidon.csproj", "{DE0E4D2C-91FF-4F21-894A-7B160879D6CB}"
 EndProject

@@ -2,7 +2,7 @@
 
 	<PropertyGroup>
 		<PackageId>NP.Ava.Gidon</PackageId>
-		<Version>0.99.16</Version>
+		<Version>0.99.1</Version>
 		<Authors>Nick Polyak, Ph. D.</Authors>
 		<Company>AWebPros</Company>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
@@ -35,6 +35,6 @@
 	<ItemGroup Condition="'$(Configuration)'=='Release'">
 		<PackageReference Include="NP.Ava.UniDock" Version="1.0.7" />
 		<PackageReference Include="NP.IoCy" Version="1.0.34" />
-		<PackageReference Include="NP.Grpc.CommonRelayInterfaces" Version="1.0.5" />
+		<PackageReference Include="NP.Grpc.CommonRelayInterfaces" Version="1.0.7" />
 	</ItemGroup>
 </Project>
