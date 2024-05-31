@@ -2,7 +2,7 @@ using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
 using Common;
-using NP.Avalonia.Gidon;
+using NP.Ava.Gidon;
 using NP.DependencyInjection.Interfaces;
 using NP.NLogAdapter;
 using NP.Utilities.PluginUtils;
