@@ -2,7 +2,7 @@
 
 	<PropertyGroup>
 		<PackageId>NP.Ava.Gidon</PackageId>
-		<Version>0.99.1</Version>
+		<Version>0.99.2</Version>
 		<Authors>Nick Polyak, Ph. D.</Authors>
 		<Company>AWebPros</Company>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
