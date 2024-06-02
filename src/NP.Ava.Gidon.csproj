@@ -33,7 +33,7 @@
 	</ItemGroup>
 
 	<ItemGroup Condition="'$(Configuration)'=='Release'">
-		<PackageReference Include="NP.Ava.UniDock" Version="1.0.7" />
+		<PackageReference Include="NP.Ava.UniDock" Version="1.0.10" />
 		<PackageReference Include="NP.IoCy" Version="1.0.34" />
 		<PackageReference Include="NP.Grpc.CommonRelayInterfaces" Version="1.0.7" />
 	</ItemGroup>
