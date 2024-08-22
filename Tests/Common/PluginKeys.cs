@@ -6,6 +6,7 @@
         TheTextService,
         AuthenticationVM,
         EnterTextViewModel,
-        ReceiveTextViewModel
+        ReceiveTextViewModel,
+        SecurityTestViewModel
     }
 }
