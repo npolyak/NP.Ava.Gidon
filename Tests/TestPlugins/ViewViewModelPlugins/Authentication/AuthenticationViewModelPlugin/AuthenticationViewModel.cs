@@ -15,7 +15,7 @@ public class AuthenticationViewModel : VMBase, IPlugin
     public IAuthenticationService? TheAuthenticationService
     {
         get;
-        private set;
+        set;
     }
 
     #region UserName Property

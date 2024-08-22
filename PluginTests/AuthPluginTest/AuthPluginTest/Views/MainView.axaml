@@ -1,0 +1,25 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="using:AuthenticationViewModelPlugin"
+             x:Class="AuthPluginTest.Views.MainView">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceInclude Source="avares://AuthenticationViewPlugin/Views/AuthenticationView.axaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid RowDefinitions="*,*"
+          x:DataType="vm:AuthenticationViewModel">
+        <ContentControl Content="{Binding}"
+                        ContentTemplate="{StaticResource AuthenticationViewDataTemplate}"/>
+
+        <StackPanel Grid.Row="1"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    Orientation="Horizontal">
+            <TextBlock Text="Is Authenticated: "/>
+            <TextBlock Text="{Binding Path=IsAuthenticated}"/>
+        </StackPanel>
+    </Grid>
+</UserControl>
